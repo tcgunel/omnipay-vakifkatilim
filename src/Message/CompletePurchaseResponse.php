@@ -13,72 +13,72 @@ use Omnipay\VakifKatilim\Helpers\Helper;
  */
 class CompletePurchaseResponse extends AbstractResponse
 {
-	protected ?object $parsedResponse = null;
+    protected ?object $parsedResponse = null;
 
-	protected ?object $authResponse = null;
+    protected ?object $authResponse = null;
 
-	/**
-	 * @param RequestInterface $request
-	 * @param mixed $data - array (auth failed) or string (XML provision response)
-	 * @param object|null $authResponse - parsed 3D authentication response
-	 */
-	public function __construct(RequestInterface $request, $data, ?object $authResponse = null)
-	{
-		parent::__construct($request, $data);
+    /**
+     * @param RequestInterface $request
+     * @param mixed $data - array (auth failed) or string (XML provision response)
+     * @param object|null $authResponse - parsed 3D authentication response
+     */
+    public function __construct(RequestInterface $request, $data, ?object $authResponse = null)
+    {
+        parent::__construct($request, $data);
 
-		$this->authResponse = $authResponse;
+        $this->authResponse = $authResponse;
 
-		if (is_string($data)) {
-			$this->parsedResponse = Helper::xmlStringToObject($data);
-		}
-	}
+        if (is_string($data)) {
+            $this->parsedResponse = Helper::xmlStringToObject($data);
+        }
+    }
 
-	public function isSuccessful(): bool
-	{
-		// If data is an array, it means auth failed
-		if (is_array($this->data)) {
-			return false;
-		}
+    public function isSuccessful(): bool
+    {
+        // If data is an array, it means auth failed
+        if (is_array($this->data)) {
+            return false;
+        }
 
-		return $this->parsedResponse !== null
-			&& isset($this->parsedResponse->ResponseCode)
-			&& $this->parsedResponse->ResponseCode === '00';
-	}
+        return $this->parsedResponse !== null
+            && isset($this->parsedResponse->ResponseCode)
+            && $this->parsedResponse->ResponseCode === '00';
+    }
 
-	public function getMessage(): ?string
-	{
-		if (is_array($this->data)) {
-			return $this->data['ResponseMessage'] ?? '3D authentication failed';
-		}
+    public function getMessage(): ?string
+    {
+        if (is_array($this->data)) {
+            return $this->data['ResponseMessage'] ?? '3D authentication failed';
+        }
 
-		return $this->parsedResponse->ResponseMessage ?? null;
-	}
+        return $this->parsedResponse->ResponseMessage ?? null;
+    }
 
-	public function getCode(): ?string
-	{
-		if (is_array($this->data)) {
-			return $this->data['ResponseCode'] ?? null;
-		}
+    public function getCode(): ?string
+    {
+        if (is_array($this->data)) {
+            return $this->data['ResponseCode'] ?? null;
+        }
 
-		return $this->parsedResponse->ResponseCode ?? null;
-	}
+        return $this->parsedResponse->ResponseCode ?? null;
+    }
 
-	public function getTransactionReference(): ?string
-	{
-		if ($this->parsedResponse === null) {
-			return null;
-		}
+    public function getTransactionReference(): ?string
+    {
+        if ($this->parsedResponse === null) {
+            return null;
+        }
 
-		return $this->parsedResponse->MerchantOrderId ?? $this->parsedResponse->OrderId ?? null;
-	}
+        return $this->parsedResponse->MerchantOrderId ?? $this->parsedResponse->OrderId ?? null;
+    }
 
-	public function getParsedResponse(): ?object
-	{
-		return $this->parsedResponse;
-	}
+    public function getParsedResponse(): ?object
+    {
+        return $this->parsedResponse;
+    }
 
-	public function getAuthResponse(): ?object
-	{
-		return $this->authResponse;
-	}
+    public function getAuthResponse(): ?object
+    {
+        return $this->authResponse;
+    }
 }

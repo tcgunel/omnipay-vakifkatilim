@@ -1,0 +1,26 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 2
+			path: src/Message/CompletePurchaseRequest.php
+
+		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/Message/PurchaseRequest.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
+			count: 2
+			path: src/Message/PurchaseRequest.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, int given\\.$#"
+			count: 2
+			path: src/Message/PurchaseRequest.php
+
+		-
+			message: "#^Method Omnipay\\\\VakifKatilim\\\\Message\\\\PurchaseResponse\\:\\:getRedirectUrl\\(\\) should return string but returns null\\.$#"
+			count: 1
+			path: src/Message/PurchaseResponse.php
