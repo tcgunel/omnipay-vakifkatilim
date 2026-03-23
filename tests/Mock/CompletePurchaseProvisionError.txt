@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: Microsoft-IIS/10.0
+Content-Type: application/xml; charset=UTF-8
+Content-Length: 450
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VPosTransactionResponseContract>
+    <ResponseCode>EmptyMDException</ResponseCode>
+    <ResponseMessage>MD degeri bos</ResponseMessage>
+    <ProvisionNumber></ProvisionNumber>
+    <OrderId>0</OrderId>
+    <MerchantOrderId>VK-ORDER-001</MerchantOrderId>
+</VPosTransactionResponseContract>

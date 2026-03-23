@@ -1,0 +1,21 @@
+{
+  "merchantId": "1",
+  "customerId": "400235",
+  "userName": "apiuser",
+  "password": "Api123",
+  "installment": 0,
+  "secure": false,
+  "transactionId": "VK-ORDER-002",
+  "amount": 12.34,
+  "currency": "TRY",
+  "testMode": false,
+  "clientIp": "192.168.1.1",
+  "card": {
+    "firstName": "Example",
+    "lastName": "User",
+    "number": "4111111111111111",
+    "expiryMonth": "12",
+    "expiryYear": "2099",
+    "cvv": "000"
+  }
+}

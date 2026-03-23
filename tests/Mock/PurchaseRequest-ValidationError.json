@@ -1,0 +1,11 @@
+{
+  "merchantId": "",
+  "customerId": "",
+  "userName": "",
+  "password": "",
+  "installment": 0,
+  "secure": false,
+  "transactionId": "",
+  "amount": 0,
+  "currency": ""
+}

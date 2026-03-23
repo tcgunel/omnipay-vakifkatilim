@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: Microsoft-IIS/10.0
+Content-Type: application/xml; charset=UTF-8
+Content-Length: 650
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VPosTransactionResponseContract>
+    <ResponseCode>00</ResponseCode>
+    <ResponseMessage>Onaylandi</ResponseMessage>
+    <ProvisionNumber>123456</ProvisionNumber>
+    <OrderId>22654837</OrderId>
+    <MerchantOrderId>VK-ORDER-002</MerchantOrderId>
+</VPosTransactionResponseContract>

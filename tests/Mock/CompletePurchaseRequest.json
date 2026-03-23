@@ -1,0 +1,11 @@
+{
+  "merchantId": "1",
+  "customerId": "400235",
+  "userName": "apiuser",
+  "password": "Api123",
+  "installment": 0,
+  "testMode": false,
+  "transactionId": "VK-ORDER-001",
+  "amount": 12.34,
+  "currency": "TRY"
+}
